@@ -1,4 +1,5 @@
 services:
+  # Redis - In-memory data store for channel metadata and session management
   redis:
     image: redis:latest
     ports:
@@ -7,6 +8,9 @@ services:
       - bodega-beam
     volumes:
       - redis_data:/data
+
+  # Coturn - TURN/STUN server for WebRTC NAT traversal
+  # Enables peer connections when users are behind firewalls or NAT
   coturn:
     image: coturn/coturn
     ports:
@@ -14,7 +18,7 @@ services:
       - 3478:3478/udp
       - 5349:5349
       - 5349:5349/udp
-      # Relay Ports
+      # Relay Ports - Uncomment to enable UDP relay for production
       # - 49152-65535:49152-65535/udp
     environment:
       - DETECT_EXTERNAL_IP=yes
@@ -22,6 +26,9 @@ services:
     command: -n --log-file=stdout --redis-userdb="ip=redis connect_timeout=30"
     networks:
       - bodega-beam
+
+  # Bodega Beam - Main application service
+  # P2P file sharing platform using WebRTC
   bodega-beam:
     build: .
     image: srswti/bodega-beam:latest

@@ -23,7 +23,6 @@ Direct browser-to-browser connections. Your files stay between you and the perso
 5. Files transfer encrypted, browser-to-browser
 6. No accounts. No cloud storage. No tracking.
 
-
 ### WebRTC Peer-to-Peer Architecture
 
 Bodega Beam uses WebRTC (Web Real-Time Communication) to establish a direct peer-to-peer connection between the sender and receiver's browsers:
@@ -179,16 +178,18 @@ No third-party analytics, no cookies for tracking, no file metadata logging.
 
 ### Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 15 (App Router) |
-| UI | React 19 + Tailwind CSS v4 |
-| Language | TypeScript |
-| P2P Connection | PeerJS (WebRTC abstraction) |
-| State Management | TanStack Query |
-| Testing | Vitest (unit) + Playwright (E2E) |
-| Theming | next-themes with View Transitions |
-| Optional Storage | Redis (channel metadata only) |
+
+| Layer            | Technology                        |
+| ---------------- | --------------------------------- |
+| Framework        | Next.js 15 (App Router)           |
+| UI               | React 19 + Tailwind CSS v4        |
+| Language         | TypeScript                        |
+| P2P Connection   | PeerJS (WebRTC abstraction)       |
+| State Management | TanStack Query                    |
+| Testing          | Vitest (unit) + Playwright (E2E)  |
+| Theming          | next-themes with View Transitions |
+| Optional Storage | Redis (channel metadata only)     |
+
 
 ### Project Structure
 
@@ -348,6 +349,7 @@ pnpm dev:full
 ```
 
 This starts:
+
 - Next.js dev server
 - Redis (channel storage)
 - COTURN (TURN/STUN server for NAT traversal)
@@ -411,3 +413,4 @@ Do whatever you want w it
 - PeerJS provides the WebRTC abstraction
 - StreamSaver.js enables streaming file downloads
 - Zip-stream implementation for multi-file downloads
+

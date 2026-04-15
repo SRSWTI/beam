@@ -1,4 +1,6 @@
 services:
+  # Redis - In-memory data store for channel metadata
+  # Binds only to localhost (127.0.0.1) for security in production
   redis:
     image: redis:latest
     ports:
@@ -7,6 +9,9 @@ services:
       - bodega-beam
     volumes:
       - redis_data:/data
+
+  # Coturn - TURN/STUN server for WebRTC connections
+  # Configured with relay ports for production NAT traversal
   coturn:
     image: coturn/coturn
     ports:
@@ -14,13 +19,18 @@ services:
       - 3478:3478/udp
       - 5349:5349
       - 5349:5349/udp
+      # Relay port range for media relay when direct connection fails
       - 60000-60128:60000-60128/udp
     environment:
       - DETECT_EXTERNAL_IP=yes
       - DETECT_RELAY_IP=yes
+    # Constrained relay port range for easier firewall configuration
     command: -n --log-file=stdout --redis-userdb="ip=redis connect_timeout=30" --min-port=60000 --max-port=60128
     networks:
       - bodega-beam
+
+  # Bodega Beam - Production application configuration
+  # Binds to all interfaces (0.0.0.0) on port 80
   bodega-beam:
     build: .
     image: srswti/bodega-beam:latest
@@ -34,6 +44,7 @@ services:
       - bodega-beam
     depends_on:
       - redis
+    # Load sensitive configuration from .env file
     env_file:
       - .env
 
