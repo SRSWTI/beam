@@ -1,7 +1,7 @@
-import React from 'react'
+import { JSX } from 'react'
 import Image from 'next/image'
 
-export default function Header(): React.ReactElement {
+export default function Header(): JSX.Element {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       <div className="p-6">

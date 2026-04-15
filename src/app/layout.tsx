@@ -38,7 +38,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body>
-          <BackgroundChangingNeat  />
+          <BackgroundChangingNeat />
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
             <BodegaBeamQueryClientProvider>
               <main>{children}</main>

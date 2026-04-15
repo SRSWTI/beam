@@ -40,6 +40,7 @@ export default function PasswordField({
           placeholder="Enter a secret password to protect your files..."
           value={value}
           onChange={handleChange}
+          autoComplete="new-password"
         />
         <button
           type="button"

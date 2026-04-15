@@ -26,7 +26,7 @@ export function Footer(): JSX.Element {
   return (
     <>
       <div className="h-[100px]" />
-      <footer className="fixed bottom-0 left-0 right-0 p-3 text-xs  ">
+      <footer className="fixed bottom-0 left-0 right-0 p-3 text-xs">
         <div className="flex justify-between items-center px-4 sm:px-6 md:px-8">
      
           <div className="flex items-center gap-3 ml-auto">

@@ -65,11 +65,11 @@
     "react-qr-code": "^2.0.15",
     "sonner": "^2.0.7",
     "streamsaver": "^2.0.6",
+    "tailwind-merge": "^2.6.0",
     "tailwindcss": "^4.1.11",
     "three": "^0.179.1",
     "web-streams-polyfill": "^4.0.0",
     "webrtcsupport": "^2.2.0",
-    "_todo_deps": "TODO: Dependencies - Review if 'three' and 'animejs' can be replaced with Framer Motion. Remove 'webrtcsupport' - modern browsers all support WebRTC",
     "zod": "^4.0.0"
   },
   "devDependencies": {
